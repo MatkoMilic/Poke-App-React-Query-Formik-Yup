@@ -1,11 +1,11 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {SafeAreaView, Text} from 'react-native';
 
 const App: React.FC = () => {
   return (
-    <View>
+    <SafeAreaView>
       <Text>My App</Text>
-    </View>
+    </SafeAreaView>
   );
 };
 
