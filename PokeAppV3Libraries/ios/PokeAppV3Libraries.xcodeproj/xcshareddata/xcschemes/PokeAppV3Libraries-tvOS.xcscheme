@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "PokeAppV3Libraries.app"
-               BlueprintName = "PokeAppV3Libraries"
+               BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
+               BuildableName = "PokeAppV3Libraries-tvOS.app"
+               BlueprintName = "PokeAppV3Libraries-tvOS"
                ReferencedContainer = "container:PokeAppV3Libraries.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "PokeAppV3LibrariesTests.xctest"
-               BlueprintName = "PokeAppV3LibrariesTests"
+               BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
+               BuildableName = "PokeAppV3Libraries-tvOSTests.xctest"
+               BlueprintName = "PokeAppV3Libraries-tvOSTests"
                ReferencedContainer = "container:PokeAppV3Libraries.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -54,9 +54,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "PokeAppV3Libraries.app"
-            BlueprintName = "PokeAppV3Libraries"
+            BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
+            BuildableName = "PokeAppV3Libraries-tvOS.app"
+            BlueprintName = "PokeAppV3Libraries-tvOS"
             ReferencedContainer = "container:PokeAppV3Libraries.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -71,9 +71,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "PokeAppV3Libraries.app"
-            BlueprintName = "PokeAppV3Libraries"
+            BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
+            BuildableName = "PokeAppV3Libraries-tvOS.app"
+            BlueprintName = "PokeAppV3Libraries-tvOS"
             ReferencedContainer = "container:PokeAppV3Libraries.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
