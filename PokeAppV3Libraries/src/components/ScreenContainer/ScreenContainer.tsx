@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, ViewStyle} from 'react-native';
+import {ViewStyle} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import {styles} from './styles';
 
 interface ScreenContainerProps {
@@ -11,7 +12,9 @@ const ScreenContainer: React.FC<ScreenContainerProps> = ({
   children,
   style,
 }): JSX.Element => {
-  return <View style={[styles.container, style]}>{children}</View>;
+  return (
+    <SafeAreaView style={[styles.container, style]}>{children}</SafeAreaView>
+  );
 };
 
 ScreenContainer.defaultProps = {
