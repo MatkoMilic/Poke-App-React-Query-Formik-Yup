@@ -1,14 +1,14 @@
 import React from 'react';
-import {StatusBarProps, StatusBar} from 'react-native';
+import {StatusBarProps, StatusBar as RnStatusBar} from 'react-native';
 import {PreferencesContext} from '../PreferencesContext';
 
-export interface IInputFieldProps extends StatusBarProps {}
+export interface IStatusBarProps extends StatusBarProps {}
 
-const InputField: React.FC<IInputFieldProps> = ({...otherProps}) => {
+const StatusBar: React.FC<IStatusBarProps> = ({...otherProps}) => {
   const {isThemeDark} = React.useContext(PreferencesContext);
 
   return (
-    <StatusBar
+    <RnStatusBar
       barStyle={isThemeDark ? 'light-content' : 'dark-content'}
       animated={true}
       {...otherProps}
@@ -16,4 +16,4 @@ const InputField: React.FC<IInputFieldProps> = ({...otherProps}) => {
   );
 };
 
-export default InputField;
+export default StatusBar;
