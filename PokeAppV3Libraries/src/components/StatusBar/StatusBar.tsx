@@ -4,7 +4,7 @@ import {PreferencesContext} from '../PreferencesContext';
 
 export interface IStatusBarProps extends StatusBarProps {}
 
-const StatusBar: React.FC<IStatusBarProps> = ({...otherProps}) => {
+const StatusBar: React.FC<IStatusBarProps> = ({...otherProps}): JSX.Element => {
   const {isThemeDark} = React.useContext(PreferencesContext);
 
   return (
