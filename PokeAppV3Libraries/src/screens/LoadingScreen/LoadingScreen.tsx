@@ -1,16 +1,17 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Text, View} from 'react-native';
 import {CompositeNavigationProp} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useTheme, TouchableRipple, Switch} from 'react-native-paper';
 import {ScreenContainer} from '../../components/ScreenContainer';
 import {
+  navigatorNames,
   OnboardingStackParamList,
+  PROFILE_SCREEN,
   RootNavigatorParamsList,
 } from '../../constants';
 import style from './style';
 import {StatusBar, PreferencesContext} from '../../components';
-
 interface LoadingScreenProps {
   navigation: CompositeNavigationProp<
     NativeStackNavigationProp<OnboardingStackParamList, 'LoadingScreen'>,
@@ -24,6 +25,12 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({
 }) => {
   const theme = useTheme();
   const {toggleTheme, isThemeDark} = React.useContext(PreferencesContext);
+
+  useEffect(() => {
+    navigation.navigate(navigatorNames.MAIN_NAVIGATOR, {
+      screen: PROFILE_SCREEN,
+    });
+  }, []);
 
   return (
     <ScreenContainer>
