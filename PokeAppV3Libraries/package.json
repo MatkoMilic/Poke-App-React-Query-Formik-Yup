@@ -12,9 +12,11 @@
   "dependencies": {
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/native-stack": "^6.2.5",
+    "@types/react-native-vector-icons": "^6.4.9",
     "commitizen": "^4.2.4",
     "deepmerge": "^4.2.2",
     "formik": "^2.2.9",
+    "material-design-icons": "^3.0.1",
     "react": "16.13.1",
     "react-native": "0.63.0",
     "react-native-paper": "^4.9.2",
