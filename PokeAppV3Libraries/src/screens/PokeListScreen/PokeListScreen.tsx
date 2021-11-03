@@ -6,10 +6,7 @@ import {IMainNavScreenProps} from '../../types';
 
 interface PokeListScreenProps extends IMainNavScreenProps {}
 
-const PokeListScreen: React.FC<PokeListScreenProps> = ({
-  navigation,
-  children,
-}) => {
+const PokeListScreen: React.FC<PokeListScreenProps> = ({navigation}) => {
   const goToProfile = () => {
     navigation.navigate(PROFILE_SCREEN);
   };
@@ -25,9 +22,8 @@ const PokeListScreen: React.FC<PokeListScreenProps> = ({
         headerTitle="Poke Settings"
         leftIcon="home-account"
         rightIcon="account-cog"
-        headerSubtitle="2front">
-        {children}
-      </Header>
+        headerSubtitle="2front"
+        children></Header>
       <Text>Welcome to poke list</Text>
     </ScreenContainer>
   );

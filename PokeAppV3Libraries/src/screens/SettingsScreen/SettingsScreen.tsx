@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, View} from 'react-native';
-import {Appbar, Switch, useTheme} from 'react-native-paper';
+import {Switch, useTheme} from 'react-native-paper';
 import {POKELIST_SCREEN, PROFILE_SCREEN} from '../../constants';
 import {ThemeContext, ScreenContainer, Header} from '../../components';
 import style from './style';
@@ -8,10 +8,7 @@ import {IMainNavScreenProps} from '../../types';
 
 interface SettingsScreenProps extends IMainNavScreenProps {}
 
-const SettingsScreen: React.FC<SettingsScreenProps> = ({
-  navigation,
-  children,
-}) => {
+const SettingsScreen: React.FC<SettingsScreenProps> = ({navigation}) => {
   const theme = useTheme();
   const {toggleTheme, isThemeDark} = React.useContext(ThemeContext);
 
@@ -30,9 +27,8 @@ const SettingsScreen: React.FC<SettingsScreenProps> = ({
         headerTitle="Poke Settings"
         leftIcon="home-account"
         rightIcon="clipboard-list"
-        headerSubtitle="2front">
-        {children}
-      </Header>
+        headerSubtitle="2front"
+        children></Header>
       <Text>Welcome to settings screen</Text>
       <View style={style.switchView}>
         <Switch

@@ -1,16 +1,12 @@
 import React from 'react';
 import {Text} from 'react-native';
-import {Appbar} from 'react-native-paper';
 import {ScreenContainer, Header} from '../../components';
 import {POKELIST_SCREEN, SETTINGS_SCREEN} from '../../constants';
 import {IMainNavScreenProps} from '../../types';
 
 interface ProfileScreenProps extends IMainNavScreenProps {}
 
-const ProfileScreen: React.FC<ProfileScreenProps> = ({
-  navigation,
-  children,
-}) => {
+const ProfileScreen: React.FC<ProfileScreenProps> = ({navigation}) => {
   const goToSettings = () => {
     navigation.navigate(SETTINGS_SCREEN);
   };
@@ -26,9 +22,8 @@ const ProfileScreen: React.FC<ProfileScreenProps> = ({
         headerTitle="Poke Settings"
         leftIcon="account-cog"
         rightIcon="clipboard-list"
-        headerSubtitle="2front">
-        {children}
-      </Header>
+        headerSubtitle="2front"
+        children></Header>
       <Text>Welcome to your profile</Text>
     </ScreenContainer>
   );
