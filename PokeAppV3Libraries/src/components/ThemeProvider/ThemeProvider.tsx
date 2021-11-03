@@ -10,7 +10,6 @@ import {
   Provider as PaperProvider,
 } from 'react-native-paper';
 import merge from 'deepmerge';
-import {PreferencesContext} from '../PreferencesContext';
 
 const CombinedDefaultTheme = merge(PaperDefaultTheme, NavigationDefaultTheme);
 const CombinedDarkTheme = merge(PaperDarkTheme, NavigationDarkTheme);
@@ -19,7 +18,12 @@ interface PreferencesProviderProps {
   children?: React.ReactNode;
 }
 
-const PreferencesProvider: FC<PreferencesProviderProps> = ({children}) => {
+export const ThemeContext = React.createContext({
+  toggleTheme: () => {},
+  isThemeDark: false,
+});
+
+export const ThemeProvider: FC<PreferencesProviderProps> = ({children}) => {
   const [isThemeDark, setIsThemeDark] = React.useState(false);
   let theme = isThemeDark ? CombinedDarkTheme : CombinedDefaultTheme;
 
@@ -35,16 +39,14 @@ const PreferencesProvider: FC<PreferencesProviderProps> = ({children}) => {
     [toggleTheme, isThemeDark],
   );
   return (
-    <PreferencesContext.Provider value={preferences}>
+    <ThemeContext.Provider value={preferences}>
       <PaperProvider theme={theme}>
         <NavigationContainer theme={theme}>{children}</NavigationContainer>
       </PaperProvider>
-    </PreferencesContext.Provider>
+    </ThemeContext.Provider>
   );
 };
 
-PreferencesProvider.defaultProps = {
+ThemeProvider.defaultProps = {
   children: undefined,
 };
-
-export default PreferencesProvider;
