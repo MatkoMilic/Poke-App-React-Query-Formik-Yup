@@ -1,6 +1,5 @@
 import React, {FC} from 'react';
 import {
-  NavigationContainer,
   DarkTheme as NavigationDarkTheme,
   DefaultTheme as NavigationDefaultTheme,
 } from '@react-navigation/native';
@@ -14,16 +13,17 @@ import merge from 'deepmerge';
 const CombinedDefaultTheme = merge(PaperDefaultTheme, NavigationDefaultTheme);
 const CombinedDarkTheme = merge(PaperDarkTheme, NavigationDarkTheme);
 
-interface PreferencesProviderProps {
+interface ThemeProviderProps {
   children?: React.ReactNode;
 }
 
 export const ThemeContext = React.createContext({
   toggleTheme: () => {},
   isThemeDark: false,
+  theme: CombinedDarkTheme || CombinedDefaultTheme,
 });
 
-export const ThemeProvider: FC<PreferencesProviderProps> = ({children}) => {
+export const ThemeProvider: FC<ThemeProviderProps> = ({children}) => {
   const [isThemeDark, setIsThemeDark] = React.useState(false);
   let theme = isThemeDark ? CombinedDarkTheme : CombinedDefaultTheme;
 
@@ -35,14 +35,14 @@ export const ThemeProvider: FC<PreferencesProviderProps> = ({children}) => {
     () => ({
       toggleTheme,
       isThemeDark,
+      theme,
     }),
-    [toggleTheme, isThemeDark],
+    [toggleTheme, isThemeDark, theme],
   );
+
   return (
     <ThemeContext.Provider value={preferences}>
-      <PaperProvider theme={theme}>
-        <NavigationContainer theme={theme}>{children}</NavigationContainer>
-      </PaperProvider>
+      <PaperProvider theme={theme}>{children}</PaperProvider>
     </ThemeContext.Provider>
   );
 };
