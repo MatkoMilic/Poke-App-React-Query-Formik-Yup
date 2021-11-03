@@ -11,7 +11,6 @@ type IHeader = RNAppbarProps & {
   headerSubtitle?: string;
   leftIcon: IconSource;
   rightIcon: IconSource;
-  children?: ReactNode;
 };
 
 const Header: React.FC<IHeader> = ({
@@ -21,7 +20,6 @@ const Header: React.FC<IHeader> = ({
   headerSubtitle,
   leftIcon,
   rightIcon,
-  children,
   ...otherProps
 }) => {
   return (
