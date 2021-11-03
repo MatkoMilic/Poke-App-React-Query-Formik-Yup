@@ -1,40 +1,22 @@
 import React from 'react';
 import {Text, View} from 'react-native';
-import {CompositeNavigationProp} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Appbar, Switch, useTheme} from 'react-native-paper';
-import {ScreenContainer} from '../../components/ScreenContainer';
-import {
-  navigatorNames,
-  OnboardingStackParamList,
-  POKELIST_SCREEN,
-  PROFILE_SCREEN,
-  RootNavigatorParamsList,
-} from '../../constants';
-import {PreferencesContext} from '../../components';
+import {POKELIST_SCREEN, PROFILE_SCREEN} from '../../constants';
+import {PreferencesContext, ScreenContainer} from '../../components';
 import style from './style';
+import {IMainNavScreenProps} from '../../types';
 
-interface SettingsScreenProps {
-  navigation: CompositeNavigationProp<
-    NativeStackNavigationProp<OnboardingStackParamList, 'LoadingScreen'>,
-    NativeStackNavigationProp<RootNavigatorParamsList>
-  >;
-}
+interface SettingsScreenProps extends IMainNavScreenProps {}
 
 const SettingsScreen: React.FC<SettingsScreenProps> = ({navigation}) => {
   const theme = useTheme();
   const {toggleTheme, isThemeDark} = React.useContext(PreferencesContext);
 
   const goToProfile = () => {
-    navigation.navigate(navigatorNames.MAIN_NAVIGATOR, {
-      screen: PROFILE_SCREEN,
-    });
+    navigation.navigate(PROFILE_SCREEN);
   };
-
   const goToPokeList = () => {
-    navigation.navigate(navigatorNames.MAIN_NAVIGATOR, {
-      screen: POKELIST_SCREEN,
-    });
+    navigation.navigate(POKELIST_SCREEN);
   };
 
   return (
