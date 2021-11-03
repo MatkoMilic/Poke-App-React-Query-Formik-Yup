@@ -1,34 +1,18 @@
 import React from 'react';
 import {Text} from 'react-native';
-import {CompositeNavigationProp} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Appbar} from 'react-native-paper';
-import {ScreenContainer} from '../../components/ScreenContainer';
-import {
-  MainStackParamList,
-  navigatorNames,
-  PROFILE_SCREEN,
-  RootNavigatorParamsList,
-  SETTINGS_SCREEN,
-} from '../../constants';
+import {ScreenContainer} from '../../components';
+import {PROFILE_SCREEN, SETTINGS_SCREEN} from '../../constants';
+import {IMainNavScreenProps} from '../../types';
 
-interface PokeListScreenProps {
-  navigation: CompositeNavigationProp<
-    NativeStackNavigationProp<MainStackParamList, 'PokeListScreen'>,
-    NativeStackNavigationProp<RootNavigatorParamsList>
-  >;
-}
+interface PokeListScreenProps extends IMainNavScreenProps {}
 
 const PokeListScreen: React.FC<PokeListScreenProps> = ({navigation}) => {
   const goToProfile = () => {
-    navigation.navigate(navigatorNames.MAIN_NAVIGATOR, {
-      screen: PROFILE_SCREEN,
-    });
+    navigation.navigate(PROFILE_SCREEN);
   };
   const goToSettings = () => {
-    navigation.navigate(navigatorNames.MAIN_NAVIGATOR, {
-      screen: SETTINGS_SCREEN,
-    });
+    navigation.navigate(SETTINGS_SCREEN);
   };
 
   return (
