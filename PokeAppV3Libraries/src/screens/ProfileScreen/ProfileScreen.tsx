@@ -1,34 +1,18 @@
 import React from 'react';
 import {Text} from 'react-native';
-import {CompositeNavigationProp} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Appbar} from 'react-native-paper';
-import {ScreenContainer} from '../../components/ScreenContainer';
-import {
-  navigatorNames,
-  OnboardingStackParamList,
-  POKELIST_SCREEN,
-  RootNavigatorParamsList,
-  SETTINGS_SCREEN,
-} from '../../constants';
+import {ScreenContainer} from '../../components';
+import {POKELIST_SCREEN, SETTINGS_SCREEN} from '../../constants';
+import {IMainNavScreenProps} from '../../types';
 
-interface ProfileScreenProps {
-  navigation: CompositeNavigationProp<
-    NativeStackNavigationProp<OnboardingStackParamList, 'LoadingScreen'>,
-    NativeStackNavigationProp<RootNavigatorParamsList>
-  >;
-}
+interface ProfileScreenProps extends IMainNavScreenProps {}
 
 const ProfileScreen: React.FC<ProfileScreenProps> = ({navigation}) => {
   const goToSettings = () => {
-    navigation.navigate(navigatorNames.MAIN_NAVIGATOR, {
-      screen: SETTINGS_SCREEN,
-    });
+    navigation.navigate(SETTINGS_SCREEN);
   };
   const goToPokeList = () => {
-    navigation.navigate(navigatorNames.MAIN_NAVIGATOR, {
-      screen: POKELIST_SCREEN,
-    });
+    navigation.navigate(POKELIST_SCREEN);
   };
 
   return (
