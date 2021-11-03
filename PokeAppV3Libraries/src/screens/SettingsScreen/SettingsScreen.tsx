@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, View} from 'react-native';
 import {Appbar, Switch, useTheme} from 'react-native-paper';
 import {POKELIST_SCREEN, PROFILE_SCREEN} from '../../constants';
-import {PreferencesContext, ScreenContainer} from '../../components';
+import {PreferencesContext, ScreenContainer, Header} from '../../components';
 import style from './style';
 import {IMainNavScreenProps} from '../../types';
 
@@ -21,7 +21,7 @@ const SettingsScreen: React.FC<SettingsScreenProps> = ({navigation}) => {
 
   return (
     <ScreenContainer>
-      <Appbar.Header>
+      <Header>
         <Appbar.Action icon="home-account" onPress={goToProfile} size={30} />
         <Appbar.Content
           style={style.headerContent}
@@ -29,7 +29,7 @@ const SettingsScreen: React.FC<SettingsScreenProps> = ({navigation}) => {
           subtitle="2FRONT"
         />
         <Appbar.Action icon="clipboard-list" onPress={goToPokeList} size={30} />
-      </Appbar.Header>
+      </Header>
       <Text>Welcome to settings screen</Text>
       <View style={style.switchView}>
         <Switch

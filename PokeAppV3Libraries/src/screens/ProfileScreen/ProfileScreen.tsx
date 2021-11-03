@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text} from 'react-native';
 import {Appbar} from 'react-native-paper';
-import {ScreenContainer} from '../../components';
+import {ScreenContainer, Header} from '../../components';
 import {POKELIST_SCREEN, SETTINGS_SCREEN} from '../../constants';
 import {IMainNavScreenProps} from '../../types';
 
@@ -17,7 +17,7 @@ const ProfileScreen: React.FC<ProfileScreenProps> = ({navigation}) => {
 
   return (
     <ScreenContainer>
-      <Appbar.Header>
+      <Header>
         <Appbar.Action icon="account-cog" onPress={goToSettings} size={30} />
         <Appbar.Content
           style={{alignItems: 'center'}}
@@ -25,7 +25,7 @@ const ProfileScreen: React.FC<ProfileScreenProps> = ({navigation}) => {
           subtitle="2FRONT"
         />
         <Appbar.Action icon="clipboard-list" onPress={goToPokeList} size={30} />
-      </Appbar.Header>
+      </Header>
       <Text>Welcome to your profile</Text>
     </ScreenContainer>
   );
