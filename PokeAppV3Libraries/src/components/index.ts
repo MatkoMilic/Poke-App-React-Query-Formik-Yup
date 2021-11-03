@@ -1,5 +1,4 @@
 export {ScreenContainer} from './ScreenContainer';
-export {PreferencesContext} from './PreferencesContext';
-export {PreferencesProvider} from './PreferencesProvider';
+export {ThemeProvider, ThemeContext} from './ThemeProvider';
 export {StatusBar} from './StatusBar';
 export {Header} from './Header';

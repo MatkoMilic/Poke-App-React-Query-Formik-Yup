@@ -1,12 +1,12 @@
 import React from 'react';
 import {RootNavigator} from './navigators';
-import {PreferencesProvider} from './components';
+import {ThemeProvider} from './components';
 
 const App: React.FC = () => {
   return (
-    <PreferencesProvider>
+    <ThemeProvider>
       <RootNavigator />
-    </PreferencesProvider>
+    </ThemeProvider>
   );
 };
 

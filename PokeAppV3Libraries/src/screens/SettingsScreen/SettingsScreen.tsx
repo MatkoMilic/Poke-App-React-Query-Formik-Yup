@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, View} from 'react-native';
 import {Appbar, Switch, useTheme} from 'react-native-paper';
 import {POKELIST_SCREEN, PROFILE_SCREEN} from '../../constants';
-import {PreferencesContext, ScreenContainer, Header} from '../../components';
+import {ThemeContext, ScreenContainer, Header} from '../../components';
 import style from './style';
 import {IMainNavScreenProps} from '../../types';
 
@@ -10,7 +10,7 @@ interface SettingsScreenProps extends IMainNavScreenProps {}
 
 const SettingsScreen: React.FC<SettingsScreenProps> = ({navigation}) => {
   const theme = useTheme();
-  const {toggleTheme, isThemeDark} = React.useContext(PreferencesContext);
+  const {toggleTheme, isThemeDark} = React.useContext(ThemeContext);
 
   const goToProfile = () => {
     navigation.navigate(PROFILE_SCREEN);
