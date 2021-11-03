@@ -7,7 +7,10 @@ import {IMainNavScreenProps} from '../../types';
 
 interface ProfileScreenProps extends IMainNavScreenProps {}
 
-const ProfileScreen: React.FC<ProfileScreenProps> = ({navigation}) => {
+const ProfileScreen: React.FC<ProfileScreenProps> = ({
+  navigation,
+  children,
+}) => {
   const goToSettings = () => {
     navigation.navigate(SETTINGS_SCREEN);
   };
@@ -17,14 +20,14 @@ const ProfileScreen: React.FC<ProfileScreenProps> = ({navigation}) => {
 
   return (
     <ScreenContainer>
-      <Header>
-        <Appbar.Action icon="account-cog" onPress={goToSettings} size={30} />
-        <Appbar.Content
-          style={{alignItems: 'center'}}
-          title="Poke App"
-          subtitle="2FRONT"
-        />
-        <Appbar.Action icon="clipboard-list" onPress={goToPokeList} size={30} />
+      <Header
+        goToScreenLeftIcon={goToSettings}
+        goToScreenRightIcon={goToPokeList}
+        headerTitle="Poke Settings"
+        leftIcon="account-cog"
+        rightIcon="clipboard-list"
+        headerSubtitle="2front">
+        {children}
       </Header>
       <Text>Welcome to your profile</Text>
     </ScreenContainer>

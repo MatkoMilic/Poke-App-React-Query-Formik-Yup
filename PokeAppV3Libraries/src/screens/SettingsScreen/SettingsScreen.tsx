@@ -8,7 +8,10 @@ import {IMainNavScreenProps} from '../../types';
 
 interface SettingsScreenProps extends IMainNavScreenProps {}
 
-const SettingsScreen: React.FC<SettingsScreenProps> = ({navigation}) => {
+const SettingsScreen: React.FC<SettingsScreenProps> = ({
+  navigation,
+  children,
+}) => {
   const theme = useTheme();
   const {toggleTheme, isThemeDark} = React.useContext(ThemeContext);
 
@@ -21,14 +24,14 @@ const SettingsScreen: React.FC<SettingsScreenProps> = ({navigation}) => {
 
   return (
     <ScreenContainer>
-      <Header>
-        <Appbar.Action icon="home-account" onPress={goToProfile} size={30} />
-        <Appbar.Content
-          style={style.headerContent}
-          title="Poke App"
-          subtitle="2FRONT"
-        />
-        <Appbar.Action icon="clipboard-list" onPress={goToPokeList} size={30} />
+      <Header
+        goToScreenLeftIcon={goToProfile}
+        goToScreenRightIcon={goToPokeList}
+        headerTitle="Poke Settings"
+        leftIcon="home-account"
+        rightIcon="clipboard-list"
+        headerSubtitle="2front">
+        {children}
       </Header>
       <Text>Welcome to settings screen</Text>
       <View style={style.switchView}>
