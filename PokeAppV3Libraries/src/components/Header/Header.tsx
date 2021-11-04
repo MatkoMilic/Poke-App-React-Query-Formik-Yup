@@ -3,7 +3,8 @@ import {Appbar as RNPaperAppbar} from 'react-native-paper';
 import {IconSource} from 'react-native-paper/lib/typescript/components/Icon';
 import {styles} from './styles';
 
-type RNAppbarProps = React.ComponentProps<typeof RNPaperAppbar>;
+type AllRNAppbarProps = React.ComponentProps<typeof RNPaperAppbar>;
+type RNAppbarProps = Omit<AllRNAppbarProps, 'children'>;
 type IHeader = RNAppbarProps & {
   goToScreenLeftIcon?: () => void;
   goToScreenRightIcon?: () => void;
@@ -13,7 +14,7 @@ type IHeader = RNAppbarProps & {
   rightIcon: IconSource;
 };
 
-const Header: React.FC<IHeader> = ({
+const Header = ({
   goToScreenLeftIcon,
   goToScreenRightIcon,
   headerTitle,
@@ -21,7 +22,7 @@ const Header: React.FC<IHeader> = ({
   leftIcon,
   rightIcon,
   ...otherProps
-}) => {
+}: IHeader) => {
   return (
     <RNPaperAppbar.Header style={styles.header} {...otherProps}>
       <RNPaperAppbar.Action
