@@ -1,13 +1,30 @@
 import React from 'react';
 import {Text} from 'react-native';
-import {ScreenContainer} from '../../components/ScreenContainer';
+import {ScreenContainer, Header} from '../../components';
+import {PROFILE_SCREEN, SETTINGS_SCREEN} from '../../constants';
+import {IMainNavScreenProps} from '../../types';
 
-interface PokeListScreenProps {}
+interface PokeListScreenProps extends IMainNavScreenProps {}
 
-const PokeListScreen: React.FC<PokeListScreenProps> = () => {
+const PokeListScreen: React.FC<PokeListScreenProps> = ({navigation}) => {
+  const goToProfile = () => {
+    navigation.navigate(PROFILE_SCREEN);
+  };
+  const goToSettings = () => {
+    navigation.navigate(SETTINGS_SCREEN);
+  };
+
   return (
     <ScreenContainer>
-      <Text>Welcome</Text>
+      <Header
+        goToScreenLeftIcon={goToProfile}
+        goToScreenRightIcon={goToSettings}
+        headerTitle="Poke Settings"
+        leftIcon="home-account"
+        rightIcon="account-cog"
+        headerSubtitle="2front"
+      />
+      <Text>Welcome to poke list</Text>
     </ScreenContainer>
   );
 };

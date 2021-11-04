@@ -1,11 +1,11 @@
 import React from 'react';
 import {StatusBarProps, StatusBar as RnStatusBar} from 'react-native';
-import {PreferencesContext} from '../PreferencesContext';
+import {ThemeContext} from '../ThemeProvider';
 
-export interface IStatusBarProps extends StatusBarProps {}
+interface IStatusBarProps extends StatusBarProps {}
 
 const StatusBar: React.FC<IStatusBarProps> = ({...otherProps}) => {
-  const {isThemeDark} = React.useContext(PreferencesContext);
+  const {isThemeDark} = React.useContext(ThemeContext);
 
   return (
     <RnStatusBar

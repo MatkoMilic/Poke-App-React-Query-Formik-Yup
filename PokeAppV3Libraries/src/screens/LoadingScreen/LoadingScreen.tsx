@@ -1,29 +1,25 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Text, View} from 'react-native';
-import {CompositeNavigationProp} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useTheme, TouchableRipple, Switch} from 'react-native-paper';
-import {ScreenContainer} from '../../components/ScreenContainer';
-import {
-  OnboardingStackParamList,
-  RootNavigatorParamsList,
-} from '../../constants';
+import {navigatorNames, PROFILE_SCREEN} from '../../constants';
 import style from './style';
-import {StatusBar, PreferencesContext} from '../../components';
+import {StatusBar, ThemeContext, ScreenContainer} from '../../components';
+import {IOnboardingNavScreenProps} from '../../types';
 
-interface LoadingScreenProps {
-  navigation: CompositeNavigationProp<
-    NativeStackNavigationProp<OnboardingStackParamList, 'LoadingScreen'>,
-    NativeStackNavigationProp<RootNavigatorParamsList>
-  >;
-}
+interface LoadingScreenProps extends IOnboardingNavScreenProps {}
 
 const LoadingScreen: React.FC<LoadingScreenProps> = ({
   navigation,
   children,
 }) => {
   const theme = useTheme();
-  const {toggleTheme, isThemeDark} = React.useContext(PreferencesContext);
+  const {toggleTheme, isThemeDark} = React.useContext(ThemeContext);
+
+  useEffect(() => {
+    navigation.navigate(navigatorNames.MAIN_NAVIGATOR, {
+      screen: PROFILE_SCREEN,
+    });
+  }, []);
 
   return (
     <ScreenContainer>
