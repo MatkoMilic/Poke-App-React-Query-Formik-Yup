@@ -23,7 +23,7 @@ const ProfileScreen: React.FC<ProfileScreenProps> = ({navigation}) => {
         leftIcon="account-cog"
         rightIcon="clipboard-list"
         headerSubtitle="2front"
-        children></Header>
+      />
       <Text>Welcome to your profile</Text>
     </ScreenContainer>
   );

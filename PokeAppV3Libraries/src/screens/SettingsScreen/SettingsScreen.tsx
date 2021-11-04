@@ -28,7 +28,7 @@ const SettingsScreen: React.FC<SettingsScreenProps> = ({navigation}) => {
         leftIcon="home-account"
         rightIcon="clipboard-list"
         headerSubtitle="2front"
-        children></Header>
+      />
       <Text>Welcome to settings screen</Text>
       <View style={style.switchView}>
         <Switch

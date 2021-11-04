@@ -23,7 +23,7 @@ const PokeListScreen: React.FC<PokeListScreenProps> = ({navigation}) => {
         leftIcon="home-account"
         rightIcon="account-cog"
         headerSubtitle="2front"
-        children></Header>
+      />
       <Text>Welcome to poke list</Text>
     </ScreenContainer>
   );
