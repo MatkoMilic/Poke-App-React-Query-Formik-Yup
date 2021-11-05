@@ -1,24 +1,29 @@
 import React, {useEffect} from 'react';
 import {Text, View} from 'react-native';
 import {useTheme, TouchableRipple, Switch} from 'react-native-paper';
-import {navigatorNames, PROFILE_SCREEN} from '../../constants';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {LOGIN_SCREEN, navigatorNames, PROFILE_SCREEN} from '../../constants';
 import style from './style';
 import {StatusBar, ThemeContext, ScreenContainer} from '../../components';
 import {IOnboardingNavScreenProps} from '../../types';
 
 interface LoadingScreenProps extends IOnboardingNavScreenProps {}
 
-const LoadingScreen: React.FC<LoadingScreenProps> = ({
-  navigation,
-  children,
-}) => {
+const LoadingScreen: React.FC<LoadingScreenProps> = ({navigation}) => {
   const theme = useTheme();
-  const {toggleTheme, isThemeDark} = React.useContext(ThemeContext);
+  const chooseNavigator = async () => {
+    const isUserLoggedIn = await AsyncStorage.getItem('activeUser');
+    if (isUserLoggedIn !== null) {
+      navigation.replace(navigatorNames.MAIN_NAVIGATOR, {
+        screen: PROFILE_SCREEN,
+      });
+    } else {
+      navigation.replace(LOGIN_SCREEN);
+    }
+  };
 
   useEffect(() => {
-    navigation.navigate(navigatorNames.MAIN_NAVIGATOR, {
-      screen: PROFILE_SCREEN,
-    });
+    chooseNavigator();
   }, []);
 
   return (
@@ -28,14 +33,6 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({
         <Text style={[{color: theme.colors.text}, style.titleText]}>
           Welcome to Loading Screen
         </Text>
-        <TouchableRipple>
-          <Switch
-            style={[{backgroundColor: theme.colors.text}, style.switchElement]}
-            color={theme.colors.text}
-            value={isThemeDark}
-            onValueChange={toggleTheme}
-          />
-        </TouchableRipple>
       </View>
     </ScreenContainer>
   );
