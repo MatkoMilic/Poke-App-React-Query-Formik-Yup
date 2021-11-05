@@ -5,6 +5,6 @@ export type {
 export type {
   IOnboardingNavScreenProps,
   OnboardingNavigationType,
-} from './IOnboardingNavScreenProps/IOnboardingNavScreen';
+} from './IOnboardingNavScreenProps/IOnboardingNavScreenProps';
 export type {IUserValues} from './IUserValues/IUserValues';
 export {initialUserLoginValues} from './IUserValues/IUserValues';
