@@ -10,13 +10,13 @@ export const removeActiveUser = async () => {
   await AsyncStorage.removeItem('activeUser');
 };
 
-export const getActiveUserValueDetails = async () => {
-  const activeUserEmail = await getActiveUser();
-  if (activeUserEmail) {
-    const getUserValueDetails = await AsyncStorage.getItem(activeUserEmail);
-    if (getUserValueDetails) {
-      const getUserDetailsParsed: IUserValues = JSON.parse(getUserValueDetails);
-      return getUserDetailsParsed;
+export const getActiveUserDetails = async () => {
+  const email = await getActiveUser();
+  if (email) {
+    const details = await AsyncStorage.getItem(email);
+    if (details) {
+      const userDetailsParsed: IUserValues = JSON.parse(details);
+      return userDetailsParsed;
     }
   }
 };
