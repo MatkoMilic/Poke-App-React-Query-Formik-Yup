@@ -4,14 +4,15 @@ import {
   LOGIN_SCREEN,
   PROFILE_SCREEN,
   SETTINGS_SCREEN,
-} from './screenNames';
-import {navigatorNames} from './navigatorNames';
+} from './screenNames/screenNames';
+import {navigatorNames} from './navigatorNames/navigatorNames';
 import {
   OnboardingStackParamList,
   MainStackParamList,
   RootNavigatorParamsList,
   RootNavigatorNameType,
-} from './navigatorTypes';
+} from './navigatorTypes/navigatorTypes';
+import {loginSchema} from '../validation/loginSchema/loginSchema';
 
 export {
   LOADING_SCREEN,
@@ -20,6 +21,7 @@ export {
   SETTINGS_SCREEN,
   PROFILE_SCREEN,
   navigatorNames,
+  loginSchema,
 };
 
 export type {
