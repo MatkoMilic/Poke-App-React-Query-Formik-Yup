@@ -1,16 +1,29 @@
 import React from 'react';
 import {Text, View} from 'react-native';
-import {Switch, useTheme} from 'react-native-paper';
-import {POKELIST_SCREEN, PROFILE_SCREEN} from '../../constants';
+import {Button, Switch, useTheme} from 'react-native-paper';
+import {
+  LOGIN_SCREEN,
+  navigatorNames,
+  POKELIST_SCREEN,
+  PROFILE_SCREEN,
+} from '../../constants';
 import {ThemeContext, ScreenContainer, Header} from '../../components';
 import style from './style';
 import {IMainNavScreenProps} from '../../types';
+import {removeActiveUser} from '../../constants/asyncStorageFunctions/asyncStorageFunctions';
 
 interface SettingsScreenProps extends IMainNavScreenProps {}
 
 const SettingsScreen: React.FC<SettingsScreenProps> = ({navigation}) => {
   const theme = useTheme();
   const {toggleTheme, isThemeDark} = React.useContext(ThemeContext);
+
+  const logoutUser = async () => {
+    removeActiveUser();
+    navigation.replace(navigatorNames.ONBOARDING_NAVIGATOR, {
+      screen: LOGIN_SCREEN,
+    });
+  };
 
   const goToProfile = () => {
     navigation.navigate(PROFILE_SCREEN);
@@ -38,6 +51,7 @@ const SettingsScreen: React.FC<SettingsScreenProps> = ({navigation}) => {
           onValueChange={toggleTheme}
         />
       </View>
+      <Button onPress={logoutUser}>LOG OUT</Button>
     </ScreenContainer>
   );
 };

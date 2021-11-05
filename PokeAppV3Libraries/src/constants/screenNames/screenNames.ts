@@ -1,4 +1,7 @@
-import {MainStackNameType, OnboardingStackNameType} from '../navigatorTypes';
+import {
+  MainStackNameType,
+  OnboardingStackNameType,
+} from '../navigatorTypes/navigatorTypes';
 
 export const PROFILE_SCREEN: MainStackNameType = 'ProfileScreen';
 export const SETTINGS_SCREEN: MainStackNameType = 'SettingsScreen';

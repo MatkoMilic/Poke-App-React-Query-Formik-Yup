@@ -3,3 +3,5 @@ export {ThemeProvider, ThemeContext} from './ThemeProvider';
 export {NavigationProvider} from './NavigationProvider';
 export {StatusBar} from './StatusBar';
 export {Header} from './Header';
+export {InputField} from './InputField';
+export {LoginForm} from './LoginForm';

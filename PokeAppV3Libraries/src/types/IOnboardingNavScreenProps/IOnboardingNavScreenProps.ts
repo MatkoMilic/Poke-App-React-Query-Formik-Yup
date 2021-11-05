@@ -5,9 +5,10 @@ import {
   RootNavigatorParamsList,
 } from '../../constants';
 
+export type OnboardingNavigationType = CompositeNavigationProp<
+  NativeStackNavigationProp<OnboardingStackParamList>,
+  NativeStackNavigationProp<RootNavigatorParamsList>
+>;
 export interface IOnboardingNavScreenProps {
-  navigation: CompositeNavigationProp<
-    NativeStackNavigationProp<OnboardingStackParamList>,
-    NativeStackNavigationProp<RootNavigatorParamsList>
-  >;
+  navigation: OnboardingNavigationType;
 }

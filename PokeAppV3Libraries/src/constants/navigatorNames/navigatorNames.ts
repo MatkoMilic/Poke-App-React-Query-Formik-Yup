@@ -1,4 +1,4 @@
-import {RootNavigatorNameType} from '../navigatorTypes';
+import {RootNavigatorNameType} from '../navigatorTypes/navigatorTypes';
 
 interface INavigatorNames {
   MAIN_NAVIGATOR: RootNavigatorNameType;
