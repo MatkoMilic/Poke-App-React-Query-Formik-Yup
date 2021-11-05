@@ -3,13 +3,14 @@ import {Text, View} from 'react-native';
 import {FormikProps} from 'formik';
 import {Button} from 'react-native-paper';
 import {InputField} from '../InputField';
+import {styles} from './styles';
 
-interface FormikPropsValues {
+interface FormikValues {
   email: string;
   password: string;
 }
 
-const LoginForm: React.FC<FormikProps<FormikPropsValues>> = ({
+const LoginForm: React.FC<FormikProps<FormikValues>> = ({
   handleChange,
   errors,
   values,
@@ -21,13 +22,13 @@ const LoginForm: React.FC<FormikProps<FormikPropsValues>> = ({
         placeholder="Your email please"
         onChangeText={handleChange('email')}
         value={values.email}></InputField>
-      <Text style={{color: 'red'}}>{errors.email}</Text>
+      <Text style={styles.inputErrorMessage}>{errors.email}</Text>
       <InputField
         placeholder="Your password please"
         secureTextEntry
         onChangeText={handleChange('password')}
         value={values.password}></InputField>
-      <Text style={{color: 'red'}}>{errors.password}</Text>
+      <Text style={styles.inputErrorMessage}>{errors.password}</Text>
       <Button icon="account-arrow-right" color={'red'} onPress={handleSubmit}>
         Login now
       </Button>
