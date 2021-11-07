@@ -12,7 +12,12 @@ import {
   RootNavigatorParamsList,
   RootNavigatorNameType,
 } from './navigatorTypes/navigatorTypes';
-import {loginSchema} from '../validation/loginSchema/loginSchema';
+import {urls} from './urls/urls';
+import {
+  getActiveUser,
+  getActiveUserDetails,
+  removeActiveUser,
+} from './asyncStorageFunctions/asyncStorageFunctions';
 
 export {
   LOADING_SCREEN,
@@ -21,7 +26,10 @@ export {
   SETTINGS_SCREEN,
   PROFILE_SCREEN,
   navigatorNames,
-  loginSchema,
+  urls,
+  getActiveUser,
+  getActiveUserDetails,
+  removeActiveUser,
 };
 
 export type {

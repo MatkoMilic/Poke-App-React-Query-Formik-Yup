@@ -8,3 +8,5 @@ export type {
 } from './IOnboardingNavScreenProps/IOnboardingNavScreenProps';
 export type {IUserValues} from './IUserValues/IUserValues';
 export {initialUserLoginValues} from './IUserValues/IUserValues';
+export type {IPokemon} from './IPokemons/IPokemons';
+export type {ReactQueryStatusType} from './ReactQueryStatusType/ReactQueryStatusType';
