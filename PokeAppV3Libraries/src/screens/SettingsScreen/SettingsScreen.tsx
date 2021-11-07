@@ -6,11 +6,11 @@ import {
   navigatorNames,
   POKELIST_SCREEN,
   PROFILE_SCREEN,
+  removeActiveUser,
 } from '../../constants';
 import {ThemeContext, ScreenContainer, Header} from '../../components';
 import style from './style';
 import {IMainNavScreenProps} from '../../types';
-import {removeActiveUser} from '../../constants/asyncStorageFunctions/asyncStorageFunctions';
 
 interface SettingsScreenProps extends IMainNavScreenProps {}
 
