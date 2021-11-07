@@ -1,14 +1,20 @@
 import React from 'react';
 import {RootNavigator} from './navigators';
-import {NavigationProvider, ThemeProvider} from './components';
+import {
+  NavigationProvider,
+  ReactQueryClientProvider,
+  ThemeProvider,
+} from './components';
 
 const App: React.FC = () => {
   return (
-    <ThemeProvider>
-      <NavigationProvider>
-        <RootNavigator />
-      </NavigationProvider>
-    </ThemeProvider>
+    <ReactQueryClientProvider>
+      <ThemeProvider>
+        <NavigationProvider>
+          <RootNavigator />
+        </NavigationProvider>
+      </ThemeProvider>
+    </ReactQueryClientProvider>
   );
 };
 
