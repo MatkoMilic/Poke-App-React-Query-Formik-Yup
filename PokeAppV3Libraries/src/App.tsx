@@ -5,14 +5,17 @@ import {
   ReactQueryClientProvider,
   ThemeProvider,
 } from './components';
+import {UserDetailsProvider} from './components/UserDetailsProvider/UserDetailsProvider';
 
 const App: React.FC = () => {
   return (
     <ReactQueryClientProvider>
       <ThemeProvider>
-        <NavigationProvider>
-          <RootNavigator />
-        </NavigationProvider>
+        <UserDetailsProvider>
+          <NavigationProvider>
+            <RootNavigator />
+          </NavigationProvider>
+        </UserDetailsProvider>
       </ThemeProvider>
     </ReactQueryClientProvider>
   );
