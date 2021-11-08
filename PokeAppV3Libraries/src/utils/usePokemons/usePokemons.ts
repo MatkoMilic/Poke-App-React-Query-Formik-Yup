@@ -13,7 +13,7 @@ const usePokemons = (): IusePokemons => {
 
   const fetchingPokemons = async (): Promise<IPokemon[]> => {
     try {
-      const response = await fetch(urls.baseUrl, {
+      const response = await fetch(urls.pokemonsUrl, {
         signal: abortController.signal,
       });
       const json = await response.json();
