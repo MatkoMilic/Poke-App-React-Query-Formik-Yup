@@ -32,17 +32,17 @@ const PokeListScreen: React.FC<PokeListScreenProps> = ({navigation}) => {
         rightIcon="account-cog"
         headerSubtitle="2front"
       />
-      {status === 'loading' && <ActivityIndicator />}
-      {status === 'error' && (
+      {status === 'loading' ? (
+        <ActivityIndicator />
+      ) : status === 'error' ? (
         <Text>Unable to process this request at the moment</Text>
-      )}
-      {status === 'success' && (
+      ) : status === 'success' ? (
         <FlatList
           data={data}
           renderItem={renderItem}
           keyExtractor={(item) => item.name}
         />
-      )}
+      ) : null}
     </ScreenContainer>
   );
 };
