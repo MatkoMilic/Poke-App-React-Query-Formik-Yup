@@ -1,4 +1,3 @@
-import {useEffect} from 'react';
 import {useQuery} from 'react-query';
 import {urls} from '../../constants';
 import {IPokemon, ReactQueryStatusType} from '../../types';
@@ -28,13 +27,6 @@ const usePokemons = (): IusePokemons => {
     'pokemons',
     fetchingPokemons,
   );
-
-  useEffect(() => {
-    fetchingPokemons();
-    return () => {
-      abortController.abort();
-    };
-  }, []);
   return {status, data, error};
 };
 
