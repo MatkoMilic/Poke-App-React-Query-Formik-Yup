@@ -5,3 +5,5 @@ export {StatusBar} from './StatusBar';
 export {Header} from './Header';
 export {InputField} from './InputField';
 export {LoginForm} from './LoginForm';
+export {PokemonListItem} from './PokemonListItem';
+export {ReactQueryClientProvider} from './ReactQueryClientProvider';

@@ -2,9 +2,9 @@ import React from 'react';
 import {Text, View} from 'react-native';
 import {Formik} from 'formik';
 import {LoginForm, ScreenContainer} from '../../components';
-import {loginSchema} from '../../constants';
+import {loginSchema} from '../../validation';
 import {IOnboardingNavScreenProps} from '../../types';
-import useOnSubmit from '../../utils/useOnSubmit/useOnSubmit';
+import {useOnSubmit} from '../../utils';
 
 interface LoginScreenProps extends IOnboardingNavScreenProps {}
 

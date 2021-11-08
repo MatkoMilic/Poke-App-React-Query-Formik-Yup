@@ -1,10 +1,10 @@
 import React, {useEffect} from 'react';
 import {Text, View} from 'react-native';
-import {useTheme, TouchableRipple, Switch} from 'react-native-paper';
+import {useTheme} from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {LOGIN_SCREEN, navigatorNames, PROFILE_SCREEN} from '../../constants';
 import style from './style';
-import {StatusBar, ThemeContext, ScreenContainer} from '../../components';
+import {StatusBar, ScreenContainer} from '../../components';
 import {IOnboardingNavScreenProps} from '../../types';
 
 interface LoadingScreenProps extends IOnboardingNavScreenProps {}
@@ -31,7 +31,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({navigation}) => {
       <StatusBar />
       <View style={style.titleView}>
         <Text style={[{color: theme.colors.text}, style.titleText]}>
-          Welcome to Loading Screen
+          Loading...
         </Text>
       </View>
     </ScreenContainer>
