@@ -11,6 +11,7 @@ interface LoadingScreenProps extends IOnboardingNavScreenProps {}
 
 const LoadingScreen: React.FC<LoadingScreenProps> = ({navigation}) => {
   const theme = useTheme();
+
   const chooseNavigator = async () => {
     const isUserLoggedIn = await AsyncStorage.getItem('activeUser');
     if (isUserLoggedIn !== null) {
