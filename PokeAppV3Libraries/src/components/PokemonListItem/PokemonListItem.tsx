@@ -3,10 +3,14 @@ import {Text, View} from 'react-native';
 import {IPokemon} from '../../types';
 import {styles} from './styles';
 
-const PokemonListItem: React.FC<IPokemon> = ({name}) => {
+interface PokemonItemProps {
+  dataPokemon: IPokemon;
+}
+
+const PokemonListItem: React.FC<PokemonItemProps> = ({dataPokemon}) => {
   return (
     <View>
-      <Text style={styles.pokemonListItem}>{name}</Text>
+      <Text style={styles.pokemonListItem}>{dataPokemon.name}</Text>
     </View>
   );
 };
