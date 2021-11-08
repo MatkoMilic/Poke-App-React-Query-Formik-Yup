@@ -4,8 +4,8 @@ import {
   NavigationProvider,
   ReactQueryClientProvider,
   ThemeProvider,
+  UserDetailsProvider,
 } from './components';
-import {UserDetailsProvider} from './components';
 
 const App: React.FC = () => {
   return (
