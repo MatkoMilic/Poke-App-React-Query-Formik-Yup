@@ -7,3 +7,6 @@ export {InputField} from './InputField';
 export {LoginForm} from './LoginForm';
 export {PokemonListItem} from './PokemonListItem';
 export {ReactQueryClientProvider} from './ReactQueryClientProvider';
+export {PokemonAttributesItem} from './PokemonAttributesItem';
+export {MyProfileCard} from './MyProfileCard';
+export {UserDetailsContext, UserDetailsProvider} from './UserDetailsProvider';
