@@ -19,7 +19,11 @@ const PokeListScreen: React.FC<PokeListScreenProps> = ({navigation}) => {
   };
 
   const renderItem: ListRenderItem<IPokemon> = ({item}) => (
-    <PokemonListItem dataPokemon={item} key={item.url} />
+    <PokemonListItem
+      navigation={navigation}
+      dataPokemon={item}
+      key={item.url}
+    />
   );
 
   return (
