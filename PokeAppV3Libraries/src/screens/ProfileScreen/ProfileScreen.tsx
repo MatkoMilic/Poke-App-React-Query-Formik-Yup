@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text} from 'react-native';
-import {ScreenContainer, Header} from '../../components';
+import {ScreenContainer, Header, MyProfileCard} from '../../components';
 import {POKELIST_SCREEN, SETTINGS_SCREEN} from '../../constants';
 import {IMainNavScreenProps} from '../../types';
 
@@ -19,12 +19,13 @@ const ProfileScreen: React.FC<ProfileScreenProps> = ({navigation}) => {
       <Header
         goToScreenLeftIcon={goToSettings}
         goToScreenRightIcon={goToPokeList}
-        headerTitle="Poke Settings"
+        headerTitle="Poke Profile"
         leftIcon="account-cog"
         rightIcon="clipboard-list"
         headerSubtitle="2front"
       />
       <Text>Welcome to your profile</Text>
+      <MyProfileCard />
     </ScreenContainer>
   );
 };
