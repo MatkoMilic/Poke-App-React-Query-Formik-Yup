@@ -17,6 +17,7 @@ import {
   getActiveUser,
   getActiveUserDetails,
   removeActiveUser,
+  saveUserDetails,
 } from './asyncStorageFunctions/asyncStorageFunctions';
 
 export {
@@ -30,6 +31,7 @@ export {
   getActiveUser,
   getActiveUserDetails,
   removeActiveUser,
+  saveUserDetails,
 };
 
 export type {
