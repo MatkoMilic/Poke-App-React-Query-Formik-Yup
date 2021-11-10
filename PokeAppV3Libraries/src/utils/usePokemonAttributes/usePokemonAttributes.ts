@@ -10,10 +10,6 @@ interface IusePokemonAttributes {
   status: ReactQueryStatusType;
   chosenPokemonStatus: ReactQueryStatusType;
   chosenPokemonData: IPokemonAttributes | undefined;
-  fetchPokemonAttributes: () => Promise<IPokemonAttributes>;
-  fetchSpecificPokemonAttributes: (
-    chosenPokemon: string,
-  ) => Promise<IPokemonAttributes>;
   setChosenPokemon: React.Dispatch<React.SetStateAction<string>>;
 }
 
@@ -58,15 +54,12 @@ const usePokemonAttributes = (): IusePokemonAttributes => {
     () => fetchSpecificPokemonAttributes(chosenPokemon),
     {enabled: !!chosenPokemon},
   );
-
   return {
     data,
     chosenPokemonData,
     status,
     chosenPokemonStatus,
     error,
-    fetchPokemonAttributes,
-    fetchSpecificPokemonAttributes,
     setChosenPokemon,
   };
 };
