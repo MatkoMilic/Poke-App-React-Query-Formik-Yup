@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {View, Text, ActivityIndicator} from 'react-native';
 import {IUserValues} from '../../types';
 import {usePokemonAttributes} from '../../utils';
@@ -8,12 +8,8 @@ import {UserDetailsContext} from '../UserDetailsProvider';
 
 const MyProfileCard: React.FC = () => {
   useState<IUserValues>();
-  const {data, status, fetchPokemonAttributes} = usePokemonAttributes();
+  const {data, status} = usePokemonAttributes();
   const {email, favoritePokemon} = useContext(UserDetailsContext);
-
-  useEffect(() => {
-    fetchPokemonAttributes();
-  }, []);
 
   return (
     <View>
