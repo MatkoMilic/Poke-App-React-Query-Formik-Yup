@@ -1,7 +1,9 @@
-import React from 'react';
-import {Text, View} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {Text, TouchableOpacity, View} from 'react-native';
 import {Button, Switch, useTheme} from 'react-native-paper';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
+  getActiveUser,
   LOGIN_SCREEN,
   navigatorNames,
   POKELIST_SCREEN,
@@ -17,6 +19,7 @@ interface SettingsScreenProps extends IMainNavScreenProps {}
 const SettingsScreen: React.FC<SettingsScreenProps> = ({navigation}) => {
   const theme = useTheme();
   const {toggleTheme, isThemeDark} = React.useContext(ThemeContext);
+  const [currentUser, setCurrentUser] = useState('');
 
   const logoutUser = async () => {
     removeActiveUser();
@@ -25,12 +28,28 @@ const SettingsScreen: React.FC<SettingsScreenProps> = ({navigation}) => {
     });
   };
 
+  const deleteUser = async () => {
+    await AsyncStorage.removeItem(currentUser);
+    removeActiveUser();
+    navigation.replace(navigatorNames.ONBOARDING_NAVIGATOR, {
+      screen: LOGIN_SCREEN,
+    });
+  };
   const goToProfile = () => {
     navigation.navigate(PROFILE_SCREEN);
   };
   const goToPokeList = () => {
     navigation.navigate(POKELIST_SCREEN);
   };
+
+  const setUserDetails = async () => {
+    const loggedUser = await getActiveUser();
+    if (loggedUser) setCurrentUser(loggedUser);
+  };
+
+  useEffect(() => {
+    setUserDetails();
+  }, []);
 
   return (
     <ScreenContainer>
@@ -52,6 +71,9 @@ const SettingsScreen: React.FC<SettingsScreenProps> = ({navigation}) => {
         />
       </View>
       <Button onPress={logoutUser}>LOG OUT</Button>
+      <TouchableOpacity onPress={deleteUser}>
+        <Text style={style.deleteButton}>DELETE YOUR ACCOUNT</Text>
+      </TouchableOpacity>
     </ScreenContainer>
   );
 };
